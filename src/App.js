@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const [facts, setFacts] = useState([]);
+
+  const getFact = () => {
+    fetch('http://numbersapi.com/random/year?json')
+      .then((res) => res.json())
+      .then((data) => setFacts(data));
+  };
+
+return (
+    <div>
+      <h1>Click the following button for a random fact about a random year! 
+      <br />
+      Who knows? You might learn something interesting...
+      </h1>
+      <button onClick={getFact}>Click Me!!!</button>
+      <div className='randomFact' key='text'>
+        Your random fact is that: {facts.text}
+      </div>
+      <footer>API requested from numbersapi.com ^_^</footer>
     </div>
   );
-}
+};
 
 export default App;
