@@ -18,19 +18,27 @@ h1 {
 button {
   width: 11rem;
   height: 6rem;
-  font-size: 30px;
   font-family: papyrus;
   font-weight: bold;
   background-color: grey;
   border-radius: 10px;
+  margin: 20px;
 }
 
+.first {
+   font-size: 30px;
+}
 
+.second {
+  font-size: 1rem;
+}
 
 .randomFact {
+  display: block;
   text-align: center;
-  margin:25px;
+  margin: auto;
   padding: 10px 10px;
+  width: 600px;
   border-style: dotted;
   border-color: black;
   border-radius: 10px;
